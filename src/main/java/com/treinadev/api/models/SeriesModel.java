@@ -1,5 +1,10 @@
 package com.treinadev.api.models;
 
+import java.time.Instant;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,4 +27,10 @@ public class SeriesModel {
     
     @Column(unique = true, nullable = false)
     private String descricao;
+
+    @CreationTimestamp // adicionado
+    private Instant dataCadastro;
+    
+    @UpdateTimestamp // adicionado
+    private Instant dataAtualizacao;
 }
