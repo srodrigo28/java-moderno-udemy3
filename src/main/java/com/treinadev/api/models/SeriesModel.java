@@ -4,6 +4,8 @@ import java.time.Instant;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,8 +31,10 @@ public class SeriesModel {
     private String descricao;
 
     @CreationTimestamp // adicionado
+    @DateTimeFormat(iso = ISO.DATE) // convert data
     private Instant dataCadastro;
     
     @UpdateTimestamp // adicionado
+    @DateTimeFormat(iso = ISO.DATE) // convert data
     private Instant dataAtualizacao;
 }
